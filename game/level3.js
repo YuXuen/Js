@@ -135,7 +135,7 @@ class level3 extends Phaser.Scene {
     this.player.body.setSize(this.player.width*0.1,this.player.height*0.2)
 
     this.cloth = this.physics.add.sprite(141.38, 420.44, "shoes")
-    this.cloth = this.physics.add.sprite(317.17, 191.78, "dress10")
+    this.cloth2 = this.physics.add.sprite(317.17, 191.78, "dress10")
     this.cloth3 = this.physics.add.sprite(317.17, 236.04, "dress11")
     this.cloth4 = this.physics.add.sprite(494.20, 419.21, "s")
     this.cloth5 = this.physics.add.sprite(285.21, 388.47, "dress12")
