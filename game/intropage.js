@@ -1,49 +1,39 @@
 class intropage extends Phaser.Scene {
+  constructor() {
+    super("intropage");
+  }
 
-    constructor ()
-    {
-        super({ key: 'intropage' });
-    }
+  preload() {
+    this.load.image("gameintro1", "assets/gameintro1.jpg");
+    this.load.audio("bgmusic", "assets/Sakura-Girl-Daisy-chosic.com_.mp3");
+  }
 
-    preload() {
-        
-        this.load.image("gameintro-01", "assets/gameintro-01.jpg");
+  create() {
+    this.music = this.sound.add("bgmusic", { loop: true }).setVolume(0.2);
+    this.music.play();
 
-        this.load.audio("bgmusic", "assets/Sakura-Girl-Daisy-chosic.com_.mp3");
-    
-    }
-    
-    create () {
+    // Display the instruction image
+    const instructionImg = this.add.image(0, 0, "gameintro1");
 
-        this.music = this.sound.add("bgmusic",{loop: true}).setVolume(0.2);
-  this.music.play();
-
-
-        // Display the instruction image
-        const instructionImg = this.add.image(0, 0, 'gameintro-01');
-     // Scale the image to fit the screen
-        const scaleX = this.game.config.width / instructionImg.width;
-        const scaleY = this.game.config.height / instructionImg.height;
-        instructionImg.setScale(scaleX, scaleY);
+    // Scale the image to fit the screen
+    const scaleX = this.game.config.width / instructionImg.width;
+    const scaleY = this.game.config.height / instructionImg.height;
+    instructionImg.setScale(scaleX, scaleY);
 
     // Center the image on the screen
-       instructionImg.setOrigin(0.5); // Set the origin to the center of the image 
-       instructionImg.setPosition(this.game.config.width / 2, this.game.config.height / 2);
-     
-       
-        console.log("gameintro-01")
-        //   let map = this.make.tilemap({ key: "world" });
+    instructionImg.setOrigin(0.5); // Set the origin to the center of the image
+    instructionImg.setPosition(
+      this.game.config.width / 2,
+      this.game.config.height / 2
+    );
 
-       var spaceDown = this.input.keyboard.addKey('SPACE');
-
-          
-  spaceDown.on('down', function(){
-    console.log("Spacebar pressed, go to next menu");
-   this.scene.start("story");
-    }, this );
-    }
-
+    this.input.keyboard.on(
+      "keydown-SPACE",
+      function () {
+        console.log("Spacebar pressed, go to next menu");
+        this.scene.start("story");
+      },
+      this
+    );
+  }
 }
-
-  
- 

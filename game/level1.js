@@ -106,10 +106,6 @@ class level1 extends Phaser.Scene {
     this.physics.world.bounds.width=this.groundLayer.width;
     this.physics.world.bounds.height=this.groundLayer.height;
 
-    
-  
-    
-
     //object layers
 
     this.anims.create({

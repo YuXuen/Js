@@ -2,7 +2,7 @@ class story2 extends Phaser.Scene {
 
     constructor ()
     {
-        super({ key: 'story2' });
+        super( 'story2' );
     }
 
     preload() {
@@ -10,7 +10,7 @@ class story2 extends Phaser.Scene {
         this.load.image("storyline2", "assets/storyline2.jpg");
     
     }
-    
+
     create () {
 
         // Display the instruction image
@@ -23,21 +23,16 @@ class story2 extends Phaser.Scene {
     // Center the image on the screen
        instructionImg.setOrigin(0.5); // Set the origin to the center of the image 
        instructionImg.setPosition(this.game.config.width / 2, this.game.config.height / 2);
-     
-       
-        console.log("storyline2")
-        //   let map = this.make.tilemap({ key: "world" });
-
-       var spaceDown = this.input.keyboard.addKey('SPACE');
-
-          
-  spaceDown.on('down', function(){
-    console.log("Spacebar pressed, go to next menu");
-   this.scene.start("howtoplay");
-    }, this );
+      
+      this.input.keyboard.on('keydown-SPACE', function(){
+    
+        console.log("Spacebar pressed, go to next menu");
+       this.scene.start("howtoplay");
+        }, this );
+        }
+    
     }
+    
+    
 
-}
 
-  
- 

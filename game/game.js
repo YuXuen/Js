@@ -7,7 +7,7 @@ var config = {
     physics: {
         default: 'arcade',
         arcade: {
-            debug: true
+            debug: false
         }
     },
      scale: {
@@ -23,8 +23,6 @@ var config = {
 var game = new Phaser.Game(config);
 
 
-window.cloth4=0
-window.cloth2=0
 
 
 
