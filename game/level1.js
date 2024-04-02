@@ -5,6 +5,7 @@ class level1 extends Phaser.Scene {
         super({ key: 'level1' });
         this.score=0;
         
+        
     }
 
     preload() {
@@ -201,7 +202,6 @@ class level1 extends Phaser.Scene {
          //In update()  
   if (
 this.player.x > 609 && this.player.y > 441 && this.player.y < 485 
-  
   ) {
     console.log("Door1");
     this.room1();
@@ -239,6 +239,7 @@ this.player.x > 609 && this.player.y > 441 && this.player.y < 485
   hitCloth(player, item) {
     console.log("Hit cloth");
     item.disableBody(true, true); // remove fire
+    
    
     
   }
@@ -248,6 +249,6 @@ this.player.x > 609 && this.player.y > 441 && this.player.y < 485
   // Function to jump to room1
   room1(player, tile) {
     console.log("room1 function");
-    this.scene.start("level2",);
+    this.scene.start("page2",);
   }
 }

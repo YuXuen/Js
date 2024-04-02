@@ -33,7 +33,7 @@ class howtoplay extends Phaser.Scene {
           
   spaceDown.on('down', function(){
     console.log("Spacebar pressed, go to next menu");
-   this.scene.start("level1");
+   this.scene.start("page1");
     }, this );
     }
 

@@ -253,7 +253,7 @@ class level2 extends Phaser.Scene {
   // Function to jump to room1
   room2(player, tile) {
     console.log("room2 function");
-    this.scene.start("level3",);
+    this.scene.start("page3",);
   } 
      
 }

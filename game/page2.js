@@ -6,7 +6,7 @@ class page2 extends Phaser.Scene {
 
   preload() {
       // Images
-      this.load.image("customer2", "asses/customer2.jpg");
+      this.load.image("customer2", "assets/customer2.jpg");
   }
 
   create() {
