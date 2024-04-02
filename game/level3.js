@@ -227,6 +227,8 @@ class level3 extends Phaser.Scene {
              this.player.anims.stop();
          }
 
+         this.player.setCollideWorldBounds(true);  // don't go out of the this.map
+
 
     } // end of update // 
 

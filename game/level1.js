@@ -3,9 +3,13 @@ class level1 extends Phaser.Scene {
     constructor ()
     {
         super({ key: 'level1' });
+        this.score=0;
+        
     }
 
     preload() {
+
+        
 
         // Step 1, load JSON
         this.load.tilemapTiledJSON("world1", "map/level1.tmj");
@@ -28,6 +32,8 @@ class level1 extends Phaser.Scene {
         
          this.load.spritesheet ('maincharacter','assets/maincharacter.png',{ frameWidth:64,frameHeight: 64});
 
+         
+
 
     } // end of preload //
 
@@ -48,9 +54,21 @@ class level1 extends Phaser.Scene {
     let Tilesroom = map.addTilesetImage("room", "room");
     let Tileswall = map.addTilesetImage("wall", "wall");
     let Tilesbasement = map.addTilesetImage("basement", "basement");
-    
 
-    //Step 5  create an array of tiles
+    let delay = 5000; // 5 seconds
+        let timer = this.time.addEvent({
+            delay: delay,
+            callback: timerCallback,
+            callbackScope: this,
+            loop: false
+        });
+
+        function timerCallback() {
+            console.log("Timer elapsed!");
+        }
+    
+  
+  //Step 5  create an array of tiles
  let tilesArray = [
     Tileselement3,
     Tileselement2,
@@ -141,12 +159,12 @@ class level1 extends Phaser.Scene {
 
       
       // When object overlap with player, call the this.collectFire function
-     this.physics.add.overlap(this.player, this.cloth, this.hitCloth, null, this);
-     this.physics.add.overlap(this.player, this.cloth2, this.hitCloth, null, this);
-     this.physics.add.overlap(this.player, this.cloth3, this.hitCloth, null, this);
-     this.physics.add.overlap(this.player, this.cloth4, this.hitCloth, null, this);
-     this.physics.add.overlap(this.player, this.cloth5, this.hitCloth, null, this);
-     this.physics.add.overlap(this.player, this.cloth6, this.hitCloth, null, this);
+      this.physics.add.overlap(this.player, this.cloth, this.hitCloth, null, this);
+      this.physics.add.overlap(this.player, this.cloth2, this.hitCloth, null, this);
+      this.physics.add.overlap(this.player, this.cloth3, this.hitCloth, null, this);
+      this.physics.add.overlap(this.player, this.cloth4, this.hitCloth, null, this);
+      this.physics.add.overlap(this.player, this.cloth5, this.hitCloth, null, this);
+      this.physics.add.overlap(this.player, this.cloth6, this.hitCloth, null, this);
      this.physics.add.overlap(this.player, this.cloth7, this.hitCloth, null, this);
      this.physics.add.overlap(this.player, this.cloth8, this.hitCloth, null, this);
     
@@ -186,9 +204,8 @@ class level1 extends Phaser.Scene {
 
          //In update()  
   if (
-    this.player.x > 609 &&
-    this.player.y > 441 &&
-    this.player.y < 485
+this.player.x > 609 && this.player.y > 441 && this.player.y < 485 
+  
   ) {
     console.log("Door1");
     this.room1();
@@ -218,12 +235,15 @@ class level1 extends Phaser.Scene {
 
          this.player.setCollideWorldBounds(true);  // don't go out of the this.map
 
+         
+
     } // end of update // 
 
     // this function is called when player touch the fire
   hitCloth(player, item) {
     console.log("Hit cloth");
     item.disableBody(true, true); // remove fire
+   
     
   }
     

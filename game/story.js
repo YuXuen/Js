@@ -7,14 +7,14 @@ class story extends Phaser.Scene {
 
     preload() {
         
-        this.load.image("story", "assets/story.jpg");
+        this.load.image("storyline1-01", "assets/storyline1-01.jpg");
     
     }
     
     create () {
 
         // Display the instruction image
-        const instructionImg = this.add.image(0, 0, 'story');
+        const instructionImg = this.add.image(0, 0, 'storyline1-01');
      // Scale the image to fit the screen
         const scaleX = this.game.config.width / instructionImg.width;
         const scaleY = this.game.config.height / instructionImg.height;
@@ -25,7 +25,7 @@ class story extends Phaser.Scene {
        instructionImg.setPosition(this.game.config.width / 2, this.game.config.height / 2);
      
        
-        console.log("story")
+        console.log("storyline1-01")
         //   let map = this.make.tilemap({ key: "world" });
 
        var spaceDown = this.input.keyboard.addKey('SPACE');

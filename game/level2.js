@@ -3,6 +3,7 @@ class level2 extends Phaser.Scene {
     constructor ()
     {
         super({ key: 'level2' });
+        
     }
 
     preload() {
@@ -203,7 +204,7 @@ class level2 extends Phaser.Scene {
   if (
     this.player.x > 623 &&
     this.player.y > 433 &&
-    this.player.y < 503
+    this.player.y < 503 
   ) {
     console.log("Door2");
     this.room2();
@@ -234,12 +235,16 @@ class level2 extends Phaser.Scene {
 
          this.player.setCollideWorldBounds(true);  // don't go out of the this.map
 
+         this.player.setCollideWorldBounds(true);  // don't go out of the this.map
+
     } // end of update // 
 
      // this function is called when player touch the fire
   hitCloth(player, item) {
     console.log("Hit cloth");
     item.disableBody(true, true); // remove fire
+
+    
     
   }
    
